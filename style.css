@@ -1,0 +1,220 @@
+* {
+	margin: 0em;
+	padding: 0em;
+	font-size: 20px;
+	border-style: none;
+	list-style-type: none;
+	color: #273149;
+}
+.App {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	background-color: #f6f7fb;
+	min-height: 100vh;		/*min of screen for any devices*/
+	position: relative;
+	padding-bottom: 100px;	/*height of footer*/
+	box-sizing: border-box;		/*min = includes footer*/
+}
+.wrapper{
+	background: linear-gradient( #EAC85E,  #f6f7fb);		
+}
+.wrapper header{
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.wrapper nav li {
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 50px;
+	text-align: end;
+}
+.wrapper nav a{
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+.wrapper nav a:hover, #current{
+  border-bottom: 1px solid white;
+}
+.mainpic{
+	margin: 0 auto;
+	width: 1000px;
+}
+.mainpic img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#box, #box h1{
+	height: 300px;
+	width: 100%;
+	position: relative;
+	top: 0;
+	padding-top: 30px;
+	text-align: center;
+	align-items: center;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 3rem;
+	color: white;
+	transition: all 2s ease;
+}
+main{
+  position: relative;
+  font-family: 'Kaushan Script', cursive;
+}
+.mainpic h2{
+	font-size: 2.5em;
+	color: #273149; 
+	border-bottom: 1px solid rgb(243, 205, 35) ;
+	cursor: pointer;
+}
+.mainpic h2:hover{
+	opacity: 0.5;
+}
+.mainpic p{
+  margin-top: 50px;
+}
+.mainpic #arrow{
+  display: block;
+  float: right;
+}
+.section{
+  font-family: 'Kaushan Script', cursive;
+	margin-top: 100px;
+	display: flex;
+	background:rgb(231, 146, 77);
+	align-items: center;
+	justify-content: center;
+}
+.section h2{
+	font-size : 2rem;
+  position: relative;
+  color: #f6f7fb;
+}
+.section button{
+	margin-top: 40px;
+	margin-right: 40px;
+	padding: 20px;
+	background-color: #273149;
+	color: #f6f7fb;
+	width: 300px;
+	border-radius: 10px;
+	cursor: pointer;
+  opacity: 0.9;
+  font-family: 'Kaushan Script', cursive;
+}
+.section button:hover{
+  background-color: #EAC85E;
+  opacity: 0.8;
+}
+footer {
+	position: absolute; 
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+}
+footer ul {
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+}
+footer a, footer li{
+	text-decoration: none;
+	color: #273149;
+	margin-right: 10px;
+	
+}
+
+.elseHeader{
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	background: #EAC85E;
+}
+.elseHeader nav li {
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 50px;
+	text-align: end;
+}
+.elseHeader nav a{
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+.elseHeader nav a:hover, #current{
+	border-bottom: 1px solid white;
+}
+
+/* Properties */
+.flex{
+  display: flex;
+  justify-content: center;
+}
+.titleOfPage h1{
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 50px;
+  background-color: #f6f7fb;
+	font-family: 'Kaushan Script', cursive;
+	font-size : 2rem;
+}
+.grid-container-pro, #addPropertySpace{
+	display: grid;
+	grid-template-columns: 400px 400px 400px;
+	grid-gap: 20px;
+	padding: 10px;
+	margin: 0 auto;
+}
+.grid-container-pro div, #addPropertySpace div{
+	background: white;
+	text-align: left;
+	padding: 5px;
+	border-radius: 10px;
+	margin-top: 30px;
+}
+.grid-container-pro h4, #addPropertySpace h4{
+	padding-top: 20px;
+}
+.obi{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	background:  rgb(52, 56, 82);
+	color: white;
+}
+.obi img{
+	margin: 5px;
+	padding-left: 10px;
+}
+.icons img, .inspe img{
+	padding: 5px;
+}
+.inspe{
+	display: flex;
+	float: left;
+	align-items: center;
+}
+.border{
+	border: 2px solid  rgb(52, 56, 82);
+	margin: 20px auto;
+}
+.addProperty{
+	padding: 30px;
+	margin: 10px auto;
+	width: 500px;
+	text-align: right;
+	border-radius: 8px;
+}
+.addProperty button{
+	margin-top: 20px;
+	border-radius: 10px;
+	padding: 5px;
+	background: #273149; 
+	color: white;
+	width: 50%;
+	cursor: pointer;
+}
+.marginTop{
+	margin-top: 20px;
+}
