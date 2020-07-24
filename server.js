@@ -11,10 +11,10 @@ app.prepare()
     .then(() => {
       const server = express ();
 
-      server.get('/property', (req, res) => {
-        return app.use(req, res, '/dbproperty');
+      server.get('/gallery', (req, res) => {
+        return handle(req, res, 'gallery.js');
       })
-
+      
       server.get('*', (req, res) => {
         return handle(req, res);
       })
