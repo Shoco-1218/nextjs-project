@@ -343,7 +343,8 @@ hr {
 /* Contact */
 .contact-main{
   display: flex;
-  justify-content: space-evenly;
+	justify-content: space-evenly;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 section ul {
 	margin-top: 20px;
@@ -396,35 +397,8 @@ textarea {
 .submitBtn:hover{
 	opacity: 0.8;
 }
-.forms i{
-	position: absolute;
-	visibility: hidden;
-}
-.forms small{
-	visibility: hidden;
-	padding-top: 5px;
-	font-size: 15px;
-}
 .forms{
 	padding-top: 15px;
-}
-.forms.success input{
-	border-color: rgb(24, 177, 24);
-}
-.forms.success i.fa-check-circle{
-	color: rgb(24, 177, 24);
-	visibility: visible;
-}
-.forms.error input{
-	border-color: rgb(245, 31, 31);
-}
-.forms.error i.fa-exclamation-circle{
-	color: rgb(245, 31, 31);
-	visibility: visible;
-}
-.forms.error small{
-	color: rgb(245, 31, 31);
-	visibility: visible;
 }
 .left{
 	margin-left: 10px;
@@ -512,7 +486,7 @@ textarea {
 	justify-content: center;
 	margin-bottom: 30px;
 }
-.mainpic{
+.mainTop{
   margin: 0 100px;
 }
 .prev,

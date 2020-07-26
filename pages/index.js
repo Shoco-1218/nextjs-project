@@ -30,11 +30,15 @@ export default () => (
     
       <main>
         <div className = "mainpic">
-            <img src = "/static/homepic.jpg" height = "100%" width = "auto" alt = "main picture" style={{margin: '0 auto'}} />
+            <img src = "/static/homepic.jpg" height = "100%" width = "auto" 
+            alt = "main picture" style={{margin: '0 auto'}} />
             <p>Let's meet!</p>
-            <h2>Ready to chat?<img src = "/static/chatarrow.png" width = "50px" height = "50px" alt = "arrow" id = "arrow" /></h2>
-          </div>
-        </main>
+            <h2>Ready to chat?
+              <img src = "/static/chatarrow.png" width = "50px" height = "50px" 
+              alt = "arrow" id = "arrow" />
+            </h2>
+        </div>
+      </main>
       </div>
     
       <div className = "section">

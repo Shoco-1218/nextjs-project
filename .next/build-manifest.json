@@ -20,13 +20,13 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/gallery": [
+    "/contact": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/properties": [
+    "/gallery": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",
