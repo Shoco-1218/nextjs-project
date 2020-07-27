@@ -18,5 +18,4 @@ const queryAsync = function(sql, args) {
   
 };
 
-
 export default queryAsync;

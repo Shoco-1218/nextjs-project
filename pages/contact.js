@@ -54,7 +54,7 @@ class Index extends React.Component{
     if(name.length < 5){
       errorName = "Please Enter with the valid name" ;
     }
-    if(mobile.length < 10 || !(mobile.match(regEx)) ){
+    if(mobile.length < 10 || !(mobile.match(regEx)[0]) ){
       errorMobile = "Please Enter with the valid mobile number";
     }
     if(!(this.state.email.includes('@'))){
@@ -68,7 +68,6 @@ class Index extends React.Component{
       })
       return false;
     }
-
     return true;
   }
 
@@ -77,7 +76,8 @@ class Index extends React.Component{
     const isValid = this.validation();
     if(isValid){
       console.log(this.state);
-      alert(this.state.name + "  Thank you so much for details.")
+      alert(this.state.name + "  Thank you so much for details.");
+      
       this.setState(initialState);
     }
   };

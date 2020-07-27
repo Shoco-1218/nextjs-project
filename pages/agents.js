@@ -2,14 +2,15 @@ import NavBar from './NavBar';
 import MetaHead from './Head';
 import Footer from "./Footer";
 import Link from 'next/link';
-import queryAsync from '../mysql';
+import queryAsync from '../mysql.js';
 
 import "../style.css"
+import React, { useEffect, useState } from 'react';
 
 export async function getServerSideProps(){
 
   let dbdata = await queryAsync(`
-    SELECT * FROM agents LIMIT 6;
+    SELECT * FROM agents LIMIT 6 ;
   `)
 
   let rows = JSON.parse(JSON.stringify(dbdata));
@@ -33,6 +34,35 @@ function Index({ rows }) {
       <p>{row.email}</p>
     </div>
   );
+
+  const [moreAgent, setMoreAgent] = useState([]);
+  let dataMap;
+
+  useEffect(() => {
+    document.getElementById("agentBtn").addEventListener('click', () => {
+      fetch('http://localhost:3000/api/moreagents' )
+      .then( res => res.json())
+      .then( json => {
+        dataMap = json.rows.map(row =>
+          <div key = {row.id}>
+            <img 
+              src={'static/' +row.agents_photo} 
+              alt="agen1" 
+              with="200" 
+              height="200" 
+            />
+            <h4>{row.name}</h4>
+            <p>{row.position}</p>
+            <p><a href="#">{row.phone}</a></p>
+            <p>{row.email}</p>
+            </div>
+        );
+
+        setMoreAgent(prev => prev.concat(dataMap));
+      })
+      .catch(err => { console.error("Error: ", err)}) 
+    })
+  },[])
 
   return(
   <>
@@ -58,8 +88,12 @@ function Index({ rows }) {
           {rowsMap}
         </div>
         <div id = "agentMember">
+          {moreAgent}
         </div>
-        <button type = "button" id = "agentBtn">More Agents</button>
+        <button 
+          type = "button" 
+          id = "agentBtn"
+        >More Agents</button>
       </main>
       <Footer />
     </div>

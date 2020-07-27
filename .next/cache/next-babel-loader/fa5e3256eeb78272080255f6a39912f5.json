@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function () {\n  console.log('Hey');\n}","map":{"version":3,"sources":["C:/Users/shoko/src/URE3-React/ure-nextjs/pages/moreagents.js"],"names":["console","log"],"mappings":"AAAA,eAAe,YAAU;AACvBA,EAAAA,OAAO,CAACC,GAAR,CAAY,KAAZ;AACD","sourcesContent":["export default function(){\r\n  console.log('Hey')\r\n}"]},"metadata":{},"sourceType":"module"}

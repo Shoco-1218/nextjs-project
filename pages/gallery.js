@@ -6,6 +6,9 @@ import queryAsync from '../mysql';
 
 import '../style.css';
 
+import React, {useState, useEffect} from 'react';
+
+
 export async function getServerSideProps(req, res){
 
   let idNumber = parseInt(req.query.id);
@@ -25,6 +28,43 @@ export async function getServerSideProps(req, res){
 }
 
 function Index({ rows }){
+
+  let row = rows[0].image_path;
+  const [imgSrc, setSrc] = useState(row);
+  const [btn, setBtn] = useState("stopbtn.png");
+  const [isPlay, setIsPlay] = useState(true);
+
+  function toggle()
+  {
+    btn == "stopbtn.png" ? setBtn("gobtn.png") : setBtn("stopbtn.png");
+    setIsPlay(!isPlay);
+  }
+
+  let thisAd = 0;
+  const adImage = [
+    rows[0].image_path,
+    "inside1.jpg",
+    "inside2.jpg",
+    "inside3.jpg",
+    "inside4.jpg",
+    "inside5.jpg"
+  ];
+  let timeHandle = null;
+  
+  useEffect(() => {
+    if (isPlay) {
+      timeHandle = setInterval(() => {
+        if(thisAd === adImage.length){
+          thisAd = 0;
+        }
+        setSrc(adImage[thisAd]);
+        thisAd++;
+      }, 1000)
+    } else {
+      clearInterval(timeHandle);
+    }
+    return () => clearInterval(timeHandle);
+  }, [isPlay]); 
 
   return (
     <>
@@ -56,50 +96,83 @@ function Index({ rows }){
         <div className="container">
           <ul id = "btns">
             <li>
-              <img src="../static/gobtn.png" alt="slide animation starts" />
-              {/* onclick = "restart()" */}
-            </li>
-            <li>
-              <img src="../static/stopbtn.png" alt="slide animation starts" />
-              {/* onclick = "stop()" */}
+              <img 
+                src={"../static/" + btn}
+                alt="slide animation starts" 
+                onClick = {() => toggle()}
+              />
             </li>
           </ul>
-          <a href>
-            <img src={"../static/" + rows[0].image_path} id="adBanner" 
-            style={{width: '100%'}} alt="house pic" />
+          <a>
+            <img 
+              src={"../static/" + imgSrc} 
+              id="adBanner" 
+              style={{width: '100%'}} 
+              alt="house pic"
+            />
           </a>
         </div>
 
         <div className="row">
           <div className="column">
-            <img className="demo cursor" src={"../static/" + rows[0].image_path}
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="Outside" />
-            {/* onclick="currentSlide(1)" */}
+            <img 
+              className="demo cursor" 
+              src={"../static/" + rows[0].image_path}
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="Outside" 
+              onClick={() => setSrc(rows[0].image_path)}
+            />
           </div>
           <div className="column">
-            <img className="demo cursor" src="../static/inside1.jpg" 
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="Inside design" />
-            {/* onclick="currentSlide(2)" */}
+            <img 
+              className="demo cursor" 
+              src="../static/inside1.jpg" 
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="Inside design" 
+              onClick={() => setSrc("inside1.jpg")}
+            />
           </div>
           <div className="column">
-            <img className="demo cursor" src="../static/inside2.jpg" 
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="Bed Room" />
-            {/* onclick="currentSlide(3)" */}
+            <img 
+              className="demo cursor" 
+              src="../static/inside2.jpg" 
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="Bed Room" 
+              onClick={() => setSrc("inside2.jpg")}
+            />
           </div>
           <div className="column">
-            <img className="demo cursor" src="../static/inside3.jpg" 
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="Bath Room" />
-            {/* onclick="currentSlide(4)" */}
+            <img 
+              className="demo cursor" 
+              src="../static/inside3.jpg" 
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="Bath Room"
+              onClick={() => setSrc("inside3.jpg")}
+            />
           </div>
           <div className="column">
-            <img className="demo cursor" src="../static/inside4.jpg" 
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="Bed Room" />
-            {/* onclick="currentSlide(5)" */}
+            <img 
+              className="demo cursor" 
+              src="../static/inside4.jpg" 
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="Bed Room" 
+              onClick={() => setSrc("inside4.jpg")}
+            />
           </div>
           <div className="column">
-            <img className="demo cursor" src="../static/inside5.jpg" 
-            style={{height: '150px', width: '100%'}} id="rowImages" alt="kitchen" />
-            {/* onclick="currentSlide(6)" */}
+            <img 
+              className="demo cursor" 
+              src="../static/inside5.jpg" 
+              style={{height: '150px', width: '100%'}} 
+              id="rowImages" 
+              alt="kitchen"
+              onClick={() => setSrc("inside5.jpg")} 
+            />
           </div>
         </div>
 
@@ -183,7 +256,13 @@ function Index({ rows }){
                   | {rows[0].address}
               </p>
               <br />
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.5144606993504!2d151.20549893317832!3d-33.87740160551429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3cc9d8039b%3A0x1b0bd5dd57af495f!2sWorld%20Square!5e0!3m2!1sen!2sau!4v1585693877945!5m2!1sen!2sau" width={300} height={300} allowFullScreen aria-hidden="false" tabIndex={0} />
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.5144606993504!2d151.20549893317832!3d-33.87740160551429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3cc9d8039b%3A0x1b0bd5dd57af495f!2sWorld%20Square!5e0!3m2!1sen!2sau!4v1585693877945!5m2!1sen!2sau" 
+                width={300} 
+                height={300} 
+                allowFullScreen aria-hidden="false" 
+                tabIndex={0} 
+              />
             </div>
           </div>
         </div>

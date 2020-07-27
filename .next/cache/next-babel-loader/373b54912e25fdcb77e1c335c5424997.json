@@ -1,0 +1,1 @@
+{"ast":null,"code":"const {\n  json\n} = require(\"express\");","map":{"version":3,"sources":["C:/Users/shoko/src/URE3-React/ure-nextjs/pages/moreagents.js"],"names":["json","require"],"mappings":"AAAA,MAAM;AAAEA,EAAAA;AAAF,IAAWC,OAAO,CAAC,SAAD,CAAxB","sourcesContent":["const { json } = require(\"express\");\r\n\r\n"]},"metadata":{},"sourceType":"script"}

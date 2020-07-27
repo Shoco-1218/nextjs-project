@@ -222,7 +222,8 @@ footer a, footer li{
 }
 
 /* Agents page */
-.grid-container{
+.grid-container, 
+#agentMember{
 	display: grid;
   grid-template-columns: auto auto auto;
   width: 1000px;
@@ -232,23 +233,28 @@ footer a, footer li{
 	margin: 0 auto;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.grid-container > div {
+.grid-container > div,
+#agentMember > div{
   background-color: #f6f7fb;
   text-align: center;
   padding: 20px 0;
 	font-size: 30px;
 	border-radius: 10px;
 }
-.grid-container img{
+.grid-container img,
+#agentMember img{
 	border-radius: 10px;
 }
-.grid-container h1{
+.grid-container h1,
+#agentMember h1{
 	padding-top: 40px;
 }
-.grid-container h4{
+.grid-container h4,
+#agentMember h4{
 	font-size: 20px;
 }
-.grid-container p{
+.grid-container p
+#agentMember p{
 	padding: 5px;
 	font-size: small;
 }
@@ -264,26 +270,7 @@ footer a, footer li{
 #agentBtn:hover{
 	opacity: 0.7;
 }
-#agentMember{
-	display: grid;
-  grid-template-columns: auto auto auto;
-  width: 1000px;
-  grid-gap: 20px;
-  background-color: #f6f7fb;
-	padding: 10px;
-	margin: 0 auto;
-	margin-bottom: 30px;
-}
-#agentMember > div {
-  background-color: #f6f7fb;
-  text-align: center;
-  padding: 20px 0;
-	font-size: 30px;
-	border-radius: 10px;
-}
-#agentMember img{
-	border-radius: 10px;
-}
+
 
 /* FAQ */
 .accbox{
