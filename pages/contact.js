@@ -77,7 +77,7 @@ class Index extends React.Component{
     if(isValid){
       console.log(this.state);
       alert(this.state.name + "  Thank you so much for details.");
-      
+      document.forms["myForm"].submit();
       this.setState(initialState);
     }
   };
@@ -127,7 +127,12 @@ class Index extends React.Component{
             <h1>Property Enquiry</h1>
           </div>
   
-          <form id="myForm" onSubmit = {this.handleSubmit}>
+          <form 
+            id="myForm" 
+            onSubmit = {this.handleSubmit}
+            action = "/enquiryPost"
+            method = "POST"
+          >
             <fieldset>
               <div className="forms">
                 <label>*Name </label>

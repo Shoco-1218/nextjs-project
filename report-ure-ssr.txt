@@ -1,0 +1,35 @@
+With Next.js
+
+[Set up]
+- npm init
+
+(If Its manual)
+- $ npm install next react react-dom
+- Modify the package.json
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+(Create-next-app)
+- $npx create-next-app
+- $ npm install --save express next react react-dom
+- Make a server page for rendering => express is in next.js = next.js is the main
+
+
+- $ npm install --save @zeit/next-css
+
+- create next.config.js
+
+[MySQL]
+- $npm install mysql
+  $npm install jsonwebtoken util
+  Make it as a components and distridute to each page
+
+[Other functions]
+- imagegallery with useEffect and useState
+
+- more agents features with fetch and API routes
+
+- Login/ Register / POST
+

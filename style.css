@@ -1,3 +1,6 @@
+/* gray: #f6f7fb */
+/* navy: #273149 or #343852 */
+/* yellow: #EAC85E */
 * {
 	margin: 0em;
 	padding: 0em;
@@ -7,14 +10,14 @@
 	color: #273149;
 }
 .App {
-	background-color: #f6f7fb;
+	background-color: white;
 	min-height: 100vh;		/*min of screen for any devices*/
 	position: relative;
 	padding-bottom: 100px;	/*height of footer*/
 	box-sizing: border-box;		/*min = includes footer*/
 }
 .wrapper{
-	background: linear-gradient( #EAC85E,  #f6f7fb);		
+	background: linear-gradient( #EAC85E,  white);		
 }
 .wrapper header{
 	display: flex;
@@ -154,7 +157,7 @@ footer a, footer li{
 	text-align: center;
 	margin-bottom: 50px;
 	margin-top: 50px;
-  background-color: #f6f7fb;
+  background-color: white;
 	font-family: 'Kaushan Script', cursive;
 	font-size : 2rem;
 }
@@ -166,7 +169,6 @@ footer a, footer li{
 	margin: 0 auto;
 }
 .grid-container-pro div, #addPropertySpace div{
-	background: white;
 	text-align: left;
 	padding: 5px;
 	border-radius: 10px;
@@ -179,12 +181,21 @@ footer a, footer li{
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	background:  rgb(52, 56, 82);
+	background:  #343852;
 	color: white;
 }
 .obi img{
 	margin: 5px;
 	padding-left: 10px;
+}
+#cardImg{
+	width: 100%;
+	height: 242px; 
+}
+#cardImg:hover{
+	border:1px solid rgb(52, 56, 82);
+	opacity: 0.6;
+	transition: all 1s ease;
 }
 .icons img, .inspe img{
 	padding: 5px;
@@ -199,11 +210,22 @@ footer a, footer li{
 	margin: 20px auto;
 }
 .addProperty{
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	padding: 30px;
 	margin: 10px auto;
 	width: 500px;
 	text-align: right;
 	border-radius: 8px;
+	
+}
+.addProperty input{
+	margin: 10px;
+}
+.addProperty h2{
+	font-size: 2rem;
+	border-bottom: 2px dotted #273149;
+	padding: 8px;
+	text-align: center;
 }
 .addProperty button{
 	margin-top: 20px;
@@ -228,14 +250,12 @@ footer a, footer li{
   grid-template-columns: auto auto auto;
   width: 1000px;
   grid-gap: 20px;
-  background-color: #f6f7fb;
 	padding: 10px;
 	margin: 0 auto;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .grid-container > div,
 #agentMember > div{
-  background-color: #f6f7fb;
   text-align: center;
   padding: 20px 0;
 	font-size: 30px;
@@ -433,15 +453,11 @@ textarea {
 .login form{
 	background: rgba(245, 241, 241, 0.8);
 }
-#success{
-	text-align: center;
-	background-image: url("/static/sydney.jpg");
-	background-size: cover;
-	height: 870px;
+#hover {
+	text-decoration: none;
 }
-#success > h4 {
-	padding-top: 50px;
-	color: white;
+#hover:hover {
+	border-bottom: 1px solid #273149;
 }
 
 
@@ -510,6 +526,13 @@ textarea {
 .active,
 .demo:hover {
   opacity: 0.6;
+}
+.center {
+	text-align: center;
+}
+.rightAbit {
+	margin-left: 30px;
+	margin-top: 50px;
 }
 
 /* Flex section */

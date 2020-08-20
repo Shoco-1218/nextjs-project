@@ -5,7 +5,7 @@ import Link from 'next/link';
 import queryAsync from '../mysql.js';
 
 import "../style.css"
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 export async function getServerSideProps(){
 
@@ -27,10 +27,15 @@ function Index({ rows }) {
 
   let rowsMap = rows.map(row =>
     <div key = {row.id}>
-      <img src={'static/' +row.agents_photo} alt="agen1" with="200" height="200" />
+      <img 
+        src={'static/' +row.agents_photo} 
+        alt="agen1" 
+        with="200" 
+        height="200"
+      />
       <h4>{row.name}</h4>
       <p>{row.position}</p>
-      <p><a href="#">{row.phone}</a></p>
+      <p>{row.phone}</p>
       <p>{row.email}</p>
     </div>
   );
@@ -38,31 +43,30 @@ function Index({ rows }) {
   const [moreAgent, setMoreAgent] = useState([]);
   let dataMap;
 
-  useEffect(() => {
-    document.getElementById("agentBtn").addEventListener('click', () => {
-      fetch('http://localhost:3000/api/moreagents' )
-      .then( res => res.json())
-      .then( json => {
-        dataMap = json.rows.map(row =>
-          <div key = {row.id}>
-            <img 
-              src={'static/' +row.agents_photo} 
-              alt="agen1" 
-              with="200" 
-              height="200" 
-            />
-            <h4>{row.name}</h4>
-            <p>{row.position}</p>
-            <p><a href="#">{row.phone}</a></p>
-            <p>{row.email}</p>
-            </div>
-        );
+  function handleClicked(){
+    fetch('http://localhost:3000/api/moreagents' )
+    .then( res => res.json())
+    .then( json => {
+      dataMap = json.rows.map(row =>
+        <div key = {row.id}>
+          <img 
+            src={'static/' +row.agents_photo} 
+            alt="agen1" 
+            with="200" 
+            height="200" 
+          />
+          <h4>{row.name}</h4>
+          <p>{row.position}</p>
+          <p>{row.phone}</p>
+          <p>{row.email}</p>
+          </div>
+      );
 
-        setMoreAgent(prev => prev.concat(dataMap));
-      })
-      .catch(err => { console.error("Error: ", err)}) 
+      setMoreAgent(prev => prev.concat(dataMap));
     })
-  },[])
+    .catch(err => { console.error("Error: ", err)}) 
+  }
+
 
   return(
   <>
@@ -93,7 +97,10 @@ function Index({ rows }) {
         <button 
           type = "button" 
           id = "agentBtn"
-        >More Agents</button>
+          onClick = {handleClicked}
+        >
+          More Agents
+        </button>
       </main>
       <Footer />
     </div>

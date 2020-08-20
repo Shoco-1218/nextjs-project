@@ -180,7 +180,7 @@ function Index({ rows }){
           <p id="caption" />
         </div>
 
-        <h2 className="margin text">{rows[0].address}</h2>
+        <h2 className="center">{rows[0].address}</h2>
         <br />
 
         {/* description of houses */}
@@ -252,7 +252,11 @@ function Index({ rows }){
             </ul>
             <div className="gmap margin text">
               <p>
-                <img src="../static/house.png" alt="icons" />
+                <img 
+                  src="../static/house.png" 
+                  alt="icons" 
+                  className= "rightAbit" 
+                />
                   | {rows[0].address}
               </p>
               <br />
