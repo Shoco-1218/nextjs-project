@@ -1,4 +1,4 @@
-With Next.js
+ With Next.js
 
 [Set up]
 - npm init
@@ -21,15 +21,33 @@ With Next.js
 
 - create next.config.js
 
+
 [MySQL]
 - $npm install mysql
   $npm install jsonwebtoken util
   Make it as a components and distridute to each page
 
-[Other functions]
-- imagegallery with useEffect and useState
 
-- more agents features with fetch and API routes
+[Image gallery]
+- useEffect: client-side js, animation controll
+- useState: status of animation 
+- getServersideprops: obtain the data from DB
 
-- Login/ Register / POST
+
+[More agents button]
+- fetch(client-side http request) => promise from api
+- in fetch call, method, body, content-type include
+- uses of .then or await
+
+
+[Login, Logout, Register]
+- collect info of register$login form in onChange + useState
+- POST data to authentication api, using async fetch & await
+- add "path=/" in cookie to make it global
+- logout = delete cookie with document.cookie + expire ~
+
+
+[Add property form]
+- decode cookies in getServersideprops and return boolean 
+- cookie is loaded when web opens = no need to use useState or useEffect
 

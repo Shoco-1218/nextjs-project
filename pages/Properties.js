@@ -25,7 +25,7 @@ function checkCookies(context) {
   const regex = /logInCookie\=([A-Za-z0-9\.\_\-]+)/;
   let decoded;
   let agentLoggedIn = false;
-  
+
   try {
     let cookie = context.req.headers.cookie;
     let token = cookie.match(regex)[1];
@@ -57,16 +57,20 @@ export async function getServerSideProps(context) {
 
 function Index({ rows, loggedIn }) {
 
+  const [message, setMessage] = useState("");
+
   let addForm = !loggedIn ? null :
   <>
+    <div>{message}</div>
     <h2 >Add more property</h2>
       <form
-        action="/moreproperty"
+        action="/properties"
         method="POST"
         id="moreProperty"
+        onSubmit = {handleAddProperty}
       >
         <div className="marginTop">
-          <label for="address">Address of Property</label>
+          <label htmlfo="address">Address of Property</label>
           <br />
           <input
             id="address"
@@ -75,10 +79,11 @@ function Index({ rows, loggedIn }) {
             placeholder="Property Address"
             size="36"
             required
+            onChange = {handleChange}
           />
         </div>
         <div className="marginTop">
-          <label for="inspection">Inspection Date</label>
+          <label htmlfo="inspection">Inspection Date</label>
           <br />
           <input
             id="inspection"
@@ -87,10 +92,11 @@ function Index({ rows, loggedIn }) {
             placeholder="Open xx/xx/ xx:xxam/pm"
             size="36"
             required
+            onChange = {handleChange}
           />
         </div>
         <div className="marginTop">
-          <label for="image_path">Tytle of the Image File</label>
+          <label htmlfo="image_path">Title of the Image File</label>
           <br />
           <input
             id="image_path"
@@ -99,10 +105,11 @@ function Index({ rows, loggedIn }) {
             placeholder="example.jpg"
             size="36"
             required
+            onChange = {handleChange}
           />
         </div>
         <div className="marginTop">
-          <label for="agentName">Agent's name</label>
+          <label htmlfo="agentName">Agent's name</label>
           <input
             id="agentName"
             type="text"
@@ -110,56 +117,173 @@ function Index({ rows, loggedIn }) {
             placeholder="Full name"
             size="36"
             required
+            onChange = {handleChange}
           />
         </div>
         <div className="marginTop">
           <label >The number of Bed Rooms</label>
           <div id="radio">
             1
-            <input type="radio" name="bed" value="1" />
+            <input 
+              type="radio" 
+              name="bed" 
+              value="1"
+              onChange = {handleChange}
+            />
             2
-            <input type="radio" name="bed" value="2" />
+            <input 
+              type="radio" 
+              name="bed" 
+              value="2"
+              onChange = {handleChange}
+            />
             3
-            <input type="radio" name="bed" value="3" />
+            <input 
+              type="radio" 
+              name="bed" 
+              value="3"
+              onChange = {handleChange} 
+            />
             4
-            <input type="radio" name="bed" value="4" />
+            <input 
+              type="radio" 
+              name="bed" 
+              value="4"
+              onChange = {handleChange}
+            />
             5
-            <input type="radio" name="bed" value="5" />
+            <input 
+              type="radio" 
+              name="bed" 
+              value="5"
+              onChange = {handleChange}
+            />
           </div>
         </div>
         <div className="marginTop">
           <label >The number of Shower Rooms</label>
           <div id="radio">
             1
-            <input type="radio" name="shower" value="1" />
+            <input 
+              type="radio" 
+              name="shower" 
+              value="1"
+              onChange = {handleChange} 
+            />
             2
-            <input type="radio" name="shower" value="2" />
+            <input 
+              type="radio" 
+              name="shower" 
+              value="2"
+              onChange = {handleChange}
+            />
             3
-            <input type="radio" name="shower" value="3" />
+            <input 
+              type="radio" 
+              name="shower" 
+              value="3"
+              onChange = {handleChange}
+            />
             4
-            <input type="radio" name="shower" value="4" />
+            <input 
+              type="radio" 
+              name="shower" 
+              value="4"
+              onChange = {handleChange} 
+            />
             5
-            <input type="radio" name="shower" value="5" />
+            <input 
+              type="radio" 
+              name="shower" 
+              value="5"
+              onChange = {handleChange}
+            />
           </div>
         </div>
         <div className="marginTop">
           <label >The number of Car Parking</label>
           <div id="radio">
             1
-            <input type="radio" name="car" value="1" />
+            <input 
+              type="radio" 
+              name="car" 
+              value="1" 
+              onChange = {handleChange} 
+            />
             2
-            <input type="radio" name="car" value="2" />
+            <input 
+              type="radio" 
+              name="car" 
+              value="2"
+              onChange = {handleChange} 
+            />
             3
-            <input type="radio" name="car" value="3" />
+            <input 
+              type="radio" 
+              name="car" 
+              value="3"
+              onChange = {handleChange}
+            />
             4
-            <input type="radio" name="car" value="4" />
+            <input 
+              type="radio" 
+              name="car" 
+              value="4" 
+              onChange = {handleChange}
+            />
             5
-            <input type="radio" name="car" value="5" />
+            <input 
+              type="radio" 
+              name="car" 
+              value="5" 
+              onChange = {handleChange}
+            />
           </div>
         </div>
         <button type='submit' id="addPropertyBtn">OK</button>
       </form>
     </>;
+
+  const [data, setData] = useState(
+    {
+      address: "",
+      inspection: "",
+      image_path: "",
+      agentName: "",
+      car: "",
+      shower: "",
+      bed: ""
+    }
+  )
+
+  function handleChange(e) {
+    let target = e.target;
+
+    setData(prev => ({
+      ...prev,
+      [target.name]: target.value
+    })
+    );
+
+  }
+
+  async function handleAddProperty(e) {
+    e.preventDefault();
+    let response = await fetch('http://localhost:3000/api/moreproperties', 
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    if(response.ok) {
+      setMessage(<h3 style = {{color: "red", textAlign: "center"}}>
+          Successfully added!
+        </h3>
+      )
+    }
+  }
 
   let rowsMap = rows.map(row =>
 

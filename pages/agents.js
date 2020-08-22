@@ -40,7 +40,7 @@ function Index({ rows }) {
     </div>
   );
 
-  const [moreAgent, setMoreAgent] = useState([]);
+  const [moreAgent, setMoreAgent] = useState();
   let dataMap;
 
   function handleClicked(){

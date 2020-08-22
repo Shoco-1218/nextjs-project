@@ -8,21 +8,21 @@ import { useState } from 'react';
 
 
 function Index() {
-  const [name, setName] = useState([""]);
-  const [email, setEmail] = useState([""]);
-  const [password, setPass] = useState([""]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
 
-  const[logMes, setLogmes] = useState(["Log In"]);
-  const[failed, setFailed] = useState([""]);
+  const[logMes, setLogmes] = useState("Log In");
+  const[failed, setFailed] = useState("");
 
   function handleChange(e){
     let target = e.target;
   
-    if(target.name == "name") {
+    if(target.name === "name") {
       setName(target.value);
-    }else if(target.name == "email") {
+    }else if(target.name === "email") {
       setEmail(target.value);
-    }else if(target.name == "password"){
+    }else if(target.name === "password"){
       setPass(target.value);
     }
   }
@@ -49,10 +49,8 @@ function Index() {
     if(response.ok) {
       setLogmes("Successfully logged in");
       setFailed("");
-      document.querySelector("#myForm").reset();
     } else {
       setFailed("Failed to proceed. Please try it again");
-      document.querySelector("#password").reset();
     }
   }
 
