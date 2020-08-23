@@ -16,11 +16,12 @@
 - $ npm install --save express next react react-dom
 - Make a server page for rendering => express is in next.js = next.js is the main
 
-
 - $ npm install --save @zeit/next-css
 
 - create next.config.js
 
+- $npm run dev 
+  to run files
 
 [MySQL]
 - $npm install mysql

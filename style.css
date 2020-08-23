@@ -55,10 +55,21 @@
 	text-align: center;
 	align-items: center;
 	font-family: 'Kaushan Script', cursive;
-	font-size: 3rem;
 	color: white;
-	transition: all 2s ease;
+	animation-name: zoomin;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
 }
+@keyframes zoomin {
+	0% {
+		font-size: 1rem;
+		font-family: 'Kaushan Script', cursive;
+	}
+	100% {
+		font-size: 3rem;
+	}
+}
+
 main{
   position: relative;
   font-family: 'Kaushan Script', cursive;
@@ -165,14 +176,18 @@ footer a, footer li{
 	display: grid;
 	grid-template-columns: 400px 400px 400px;
 	grid-gap: 20px;
+
 	padding: 10px;
 	margin: 0 auto;
 }
 .grid-container-pro div, #addPropertySpace div{
 	text-align: left;
-	padding: 5px;
+	padding: 20px;
 	border-radius: 10px;
 	margin-top: 30px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .grid-container-pro h4, #addPropertySpace h4{
 	padding-top: 20px;
@@ -259,7 +274,9 @@ footer a, footer li{
   text-align: center;
   padding: 20px 0;
 	font-size: 30px;
-	border-radius: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .grid-container img,
 #agentMember img{
