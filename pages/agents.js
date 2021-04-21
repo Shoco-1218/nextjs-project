@@ -64,7 +64,7 @@ function Index({ rows }) {
 
       setMoreAgent(prev => prev.concat(dataMap));
     })
-    .catch(err => { console.error("Error: ", err)}) 
+    .catch(err => { console.error("Error: ", err) }) 
   }
 
 
