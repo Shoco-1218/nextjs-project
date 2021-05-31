@@ -1,14 +1,11 @@
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
 import queryAsync from '../mysql';
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import "../style.css"
-
 import jwt from 'jsonwebtoken';
-
 
 async function getProperties() {
   let dbdata = await queryAsync(`
@@ -55,7 +52,7 @@ export async function getServerSideProps(context) {
 };
 
 
-function Index({ rows, loggedIn }) {
+function Property({ rows, loggedIn }) {
 
   const [message, setMessage] = useState("");
 
@@ -240,7 +237,9 @@ function Index({ rows, loggedIn }) {
             />
           </div>
         </div>
-        <button type='submit' id="addPropertyBtn">OK</button>
+        <button type='submit' id="addPropertyBtn">
+          OK
+        </button>
       </form>
     </>;
 
@@ -264,8 +263,7 @@ function Index({ rows, loggedIn }) {
       [target.name]: target.value
     })
     );
-
-  }
+  };
 
   async function handleAddProperty(e) {
     e.preventDefault();
@@ -283,10 +281,9 @@ function Index({ rows, loggedIn }) {
         </h3>
       )
     }
-  }
+  };
 
-  let rowsMap = rows.map(row =>
-
+  let rowsMap = rows.map(row => (
     <div className="imgs" key={row.id} >
       <br />
       <p className="right">Ultimo Real Estate</p>
@@ -315,12 +312,10 @@ function Index({ rows, loggedIn }) {
         <img src="static/planner.png" /> Inspection : {row.inspection}
       </p>
     </div>
-  );
-
+  ));
 
   return (
     <>
-
       <MetaHead />
       <div className="App">
         <header className='elseHeader'>
@@ -339,7 +334,6 @@ function Index({ rows, loggedIn }) {
           <div className="titleOfPage">
             <h1>Property of the Week</h1>
           </div>
-
           <div className="flex">
             <div className="grid-container-pro">
               {rowsMap}
@@ -351,10 +345,8 @@ function Index({ rows, loggedIn }) {
         </main>
         <Footer />
       </div>
-
     </>
   )
 };
 
-
-export default Index;
+export default Property;

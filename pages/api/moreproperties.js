@@ -1,6 +1,6 @@
 import queryAsync from "../../mysql";
 
-async function addMore(req, res) {
+async function addMoreProperty(req, res) {
   try {
     let address = req.body.address;
     let inspection = req.body.inspection;
@@ -13,18 +13,13 @@ async function addMore(req, res) {
     let agentData = await queryAsync(`SELECT * FROM agents WHERE name LIKE '${agentName}';`);
     let agentId = agentData[0].id;
   
-    await queryAsync(`INSERT INTO property (agent_id, address, image_path, inspection, 
-    bed, shower, car) 
-  VALUES (${agentId},"${address}", "${image_path}", "${inspection}", ${car}, ${shower}, ${bed});`);
+    await queryAsync(`INSERT INTO property (agent_id, address, image_path, inspection, bed, shower, car) VALUES (${agentId},"${address}", "${image_path}", "${inspection}", ${car}, ${shower}, ${bed});`);
   
     res.statusCode = 200;
-    console
     res.end();
   } catch {
     console.error();
   }
-
-
 }
 
-export default addMore
+export default addMoreProperty;

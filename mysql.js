@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   database: 'expressproject'
 })
 
-connection.connect()
+connection.connect();
 
 const queryAsync = function(sql, args) {
 

@@ -1,9 +1,8 @@
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
 import queryAsync from '../mysql.js';
-
 import "../style.css"
 import React, { useState } from 'react';
 
@@ -11,19 +10,16 @@ export async function getServerSideProps(){
 
   let dbdata = await queryAsync(`
     SELECT * FROM agents LIMIT 6 ;
-  `)
-
+  `);
   let rows = JSON.parse(JSON.stringify(dbdata));
-
   return {
     props: {
       rows
     },
   }
-}
+};
 
-
-function Index({ rows }) {
+function Agents({ rows }) {
 
   let rowsMap = rows.map(row =>
     <div key = {row.id}>
@@ -65,8 +61,7 @@ function Index({ rows }) {
       setMoreAgent(prev => prev.concat(dataMap));
     })
     .catch(err => { console.error("Error: ", err) }) 
-  }
-
+  };
 
   return(
   <>
@@ -108,4 +103,4 @@ function Index({ rows }) {
   );
 }
 
-export default Index;
+export default Agents;

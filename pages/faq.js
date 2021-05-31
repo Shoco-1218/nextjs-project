@@ -1,15 +1,13 @@
 import React from 'react';
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
-
 import '../style.css'
 
-function Index() {
+function Faq() {
   return (
     <>
-
       <MetaHead />
       <div className="App">
         <header className='elseHeader'>
@@ -23,14 +21,12 @@ function Index() {
           </div>
           <NavBar />
         </header>
-
         <main>
           <div className="titleOfPage">
             <h1>Frequently Asked Questions(FAQ)</h1>
           </div>
 
           <div className="accbox">
-            {/* label 1 */}
             <input id="label1" className="inputclass" type="checkbox" />
             <label htmlFor="label1">Why should I list my property with Ultimo Real Estate?</label>
             <div className="insidebox">
@@ -39,8 +35,6 @@ function Index() {
               </p>
             </div>
             <hr />
-
-            {/* label 2 */}
             <input id="label2" className="inputclass" type="checkbox" />
             <label htmlFor="label2">Can I till sell or lease my property</label>
             <div className="insidebox">
@@ -49,8 +43,6 @@ function Index() {
               </p>
             </div>
             <hr />
-
-            {/* label 3 */}
             <input id="label3" className="inputclass" type="checkbox" />
             <label htmlFor="label3">How do virtual or digital inspections work?</label>
             <div className="insidebox">
@@ -59,8 +51,6 @@ function Index() {
               </p>
             </div>
             <hr />
-
-            {/* label 4 */}
             <input id="label4" className="inputclass" type="checkbox" />
             <label htmlFor="label4">What if I can’t make my mortgage repayments?</label>
             <div className="insidebox">
@@ -73,10 +63,9 @@ function Index() {
         </main>
       <Footer />
       </div>
-
     </>
   );
 }
 
 
-export default Index;
+export default Faq;

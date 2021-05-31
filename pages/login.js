@@ -1,13 +1,13 @@
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
 
 import '../style.css';
 import { useState } from 'react';
 
 
-function Index() {
+function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -162,4 +162,4 @@ function Index() {
   );
 }
 
-export default Index
+export default Login

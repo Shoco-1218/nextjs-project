@@ -44,7 +44,6 @@ async function auth(req, res) {
     res.redirect('/index');
     res.end();
   }
-}
-
+};
 
 export default auth

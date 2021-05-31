@@ -1,23 +1,20 @@
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
-
 import '../style.css';
 import { useState } from 'react';
 
-function Index(){
+function Register(){
 
   const [registerMes, setRegisterMes] = useState(["Register"]);
   const [failed, setFailed] = useState([""]);
-
   const [name, setName] = useState([""]);
   const [email, setEmail] = useState([""]);
   const [password, setPass] = useState([""]);
 
   function handleChange(e){
     let target = e.target;
-
     if(target.name == "name") {
       setName(target.value);
     }else if(target.name == "email") {
@@ -25,8 +22,7 @@ function Index(){
     }else if(target.name == "password"){
       setPass(target.value);
     }
-
-  }
+  };
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -53,11 +49,10 @@ function Index(){
       setFailed("Failed to register. Please try it again");
       document.querySelector("#password").reset();
     }
-  }
+  };
 
   return (
     <>
-
     <MetaHead />
     <div className="App">
       <header className='elseHeader'>
@@ -133,15 +128,11 @@ function Index(){
             </form>
           </div>
         </div>
-
       </main>
-
       <Footer />
-
     </div>
-
     </>
   );
 }
 
-export default Index;
+export default Register;

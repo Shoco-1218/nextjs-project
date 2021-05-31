@@ -1,13 +1,10 @@
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import Link from 'next/link';
 import queryAsync from '../mysql';
-
 import '../style.css';
-
 import React, {useState, useEffect} from 'react';
-
 
 export async function getServerSideProps(req, res){
 
@@ -19,7 +16,6 @@ export async function getServerSideProps(req, res){
 
   let rows = JSON.parse(JSON.stringify(dbdata));
 
-  
   return {
     props:{
       rows
@@ -27,15 +23,14 @@ export async function getServerSideProps(req, res){
   }
 }
 
-function Index({ rows }){
+function Gallery({ rows }){
 
   let row = rows[0].image_path;
   const [imgSrc, setSrc] = useState(row);
   const [btn, setBtn] = useState("stopbtn.png");
   const [isPlay, setIsPlay] = useState(true);
 
-  function toggle()
-  {
+  function toggle(){
     btn == "stopbtn.png" ? setBtn("gobtn.png") : setBtn("stopbtn.png");
     setIsPlay(!isPlay);
   }
@@ -265,7 +260,7 @@ function Index({ rows }){
                 width={300} 
                 height={300} 
                 allowFullScreen aria-hidden="false" 
-                tabIndex={0} 
+                tabGallery={0} 
               />
             </div>
           </div>
@@ -280,4 +275,4 @@ function Index({ rows }){
   )
 }
 
-export default Index;
+export default Gallery;

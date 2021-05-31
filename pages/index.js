@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import NavBar from './NavBar';
-import MetaHead from './Head';
-import Footer from "./Footer";
-
+import NavBar from './components/NavBar';
+import MetaHead from './components/Head';
+import Footer from "./components/Footer";
 import "../style.css"
 
 export default () => (
@@ -14,20 +13,18 @@ export default () => (
       <header>
         <div>
           <Link href="/">
-            <a><img  src="../static/estate-logo.svg" width="300" height="100" 
-            alt="Ultimo Real Estate, Sydney, Australia" /></a>
+            <img  src="../static/estate-logo.svg" width="250" height="100" 
+            alt="Ultimo Real Estate, Sydney, Australia" />
           </Link>
         </div>
         <NavBar />
       </header>
-
       <div id = "box">
         <h1>
           A new appporh for your <br /> 
           future property.
         </h1>
       </div>
-    
       <main>
         <div className = "mainpic">
             <img src = "/static/homepic.jpg" height = "100%" width = "auto" 
@@ -40,7 +37,6 @@ export default () => (
         </div>
       </main>
       </div>
-    
       <div className = "section">
         <div>
           <h2>
@@ -55,10 +51,7 @@ export default () => (
           alt = "section picture" />
         </div>
       </div>
-
       <Footer />
-      
     </div>
-
   </>
 );
